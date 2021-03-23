@@ -1,0 +1,19 @@
+.input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 24px;
+ 
+}
+
+input{
+    width: 80%
+}
+
+.search-btn{
+    font-size: 24px;
+}
+
+
+
+
