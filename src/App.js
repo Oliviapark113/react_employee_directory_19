@@ -11,7 +11,7 @@ import axios from 'axios'
 class App extends React.Component {
    state ={
     //Where you can find default value
-    searchByName:"",
+    searchByGender:"",
     searchByDOB:"",
     results: []
   }
@@ -19,10 +19,20 @@ class App extends React.Component {
   componentDidMount(){
    axios.get('https://randomuser.me/api/?results=20')
    .then(response => {
-     console.log("app",response.data.results)
+   
      this.setState({results: response.data.results})
     })
    .catch(err => console.error(err))
+  }
+
+  searchByGender = ()=>{
+    axios.get(`https://randomuser.me/api/?gender=${this.state.searchByGender}=10`)
+    .then(response =>{
+      console.log(response.data.results)
+      this.setState({results:response.data.results })
+    })
+
+
   }
 
   handleInputChange = (e)=>{
@@ -34,12 +44,12 @@ class App extends React.Component {
 
  handleSubmit = e =>{
   e.preventDefault()
-  console.log("Submitting....", this.state.searchByName, this.state.searchByDOB)
-  if(this.state.searchByName==="" && this.state.searchByDOB===""){
+  console.log("Submitting....", this.state.searchByGender, this.state.searchByDOB)
+  if(this.state.searchByGender==="" && this.state.searchByDOB===""){
       alert("Please enter correct search term")
 
   }
-  localStorage.setItem("search", `${this.state.searchByName} ${this.state.searchByDOB}`)
+  localStorage.setItem("search", `${this.state.searchByGender} ${this.state.searchByDOB}`)
 }
 
   render(){
@@ -49,10 +59,11 @@ class App extends React.Component {
       <Wrapper>
            <Title>Employee Directory</Title>
            <Search 
-             searchByName={this.state.searchByName}
+             searchByName={this.state.searchByGender}
              searchByDOB={this.state.searchByDOB}
              handleInputChange={this.handleInputChange}
              handleSubmit={this.handleSubmit}
+             searchByGender={this.searchByGender}
            />
       
           <Employee

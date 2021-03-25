@@ -8,16 +8,16 @@ const Search =props=> {
                 <div className="row name-search">
                     <div className="name-input">
                     <input type="text" 
-                            name="searchByName"
-                            value={props.searchByName}
-                            placeholder="Enter Full Name"
+                            name="searchByGender"
+                            value={props.searchByGender}
+                            placeholder="Enter Gender"
                             onChange={props.handleInputChange}/>
                     </div>
                     <div className="name-btn">
                         <button 
                         type="button" 
                         className="query_btn btn btn-default btn-sm search-btn"
-                        onClick={props.handleSubmit}>Search by Name</button>
+                        onClick={props.searchByGender}>Search by Gender</button>
                     </div>
                     </div>
                     <div className="row dob-search">

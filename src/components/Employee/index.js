@@ -19,13 +19,13 @@ function Employee (props) {
          <tr>
            <th scope="row">                          
            <div className="img-container">
-            <img src={result.picture.large}/>
+            <img src={result.picture.large} key ={result.id.value}/>
            </div>
            </th>
-           <td>{`${result.name.first} ${result.name.last}`}</td>
-           <td>{result.phone}</td>
-           <td>{result.email}</td>
-           <td>{result.dob.date}</td>
+           <td key={result.id.value}>{`${result.name.first} ${result.name.last}`}</td>
+           <td key={result.id.name} >{result.phone}</td>
+           <td key={result.login.uuid}>{result.email}</td>
+           <td key={result.login.username}>{result.dob.date}</td>
          </tr>
 
        </tbody>
