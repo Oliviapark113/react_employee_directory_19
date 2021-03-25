@@ -5,6 +5,7 @@ import Title from './components/Title';
 import Employee from './components/Employee';
 import Search from './components/Search';
 import axios from 'axios'
+import API from './components/utils/API'
 
 
 
@@ -17,16 +18,20 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-   axios.get('https://randomuser.me/api/?results=20')
-   .then(response => {
-   
-     this.setState({results: response.data.results})
-    })
-   .catch(err => console.error(err))
+   this.searchByEmployee()
   }
 
+ searchByEmployee(){
+    axios.get('https://randomuser.me/api/?results=20')
+    .then(response => {
+    
+      this.setState({results: response.data.results})
+     })
+    .catch(err => console.error(err))
+   }
+
   searchByGender = ()=>{
-    axios.get(`https://randomuser.me/api/?gender=${this.state.searchByGender}=10`)
+    API.searchBygender(this.state.searchByGender)
     .then(response =>{
       console.log(response.data.results)
       this.setState({results:response.data.results })
