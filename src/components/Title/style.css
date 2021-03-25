@@ -1,9 +1,22 @@
+.navbar{
+  background-color: #304ffe;
+  width: 100%;
+  margin-bottom: 30px;
+ 
+}
+
+
+
 .title {
     width: 100%;
     text-align: center;
     font-size: 5rem;
-  
-    color: #2A77AE;
+    font-family: 'Montserrat', sans-serif;
+    color:whitesmoke;
     margin-bottom: 50px;
+   
+    
   }
+
+
   

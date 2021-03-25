@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+// import Search from "./Search"
 
 function Employee(props) {
   return (

@@ -1,13 +1,15 @@
 .table {
     background: #fff;
     border-radius: 2px;
-    height: 100%;
-    margin: 1rem;
-    position: relative;
+    padding: 1rem;
+    margin: auto; 
+  
+    /* position: relative; */
     width: 100%;
     box-shadow: 0 3px 6px #999, 0 3px 6px #999;
     text-align: left;
     font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
   }
   
    .img-container {
