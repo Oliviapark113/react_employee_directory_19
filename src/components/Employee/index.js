@@ -2,45 +2,39 @@ import React from "react";
 import "./style.css";
 // import Search from "./Search"
 
-function Employee(props) {
+function Employee (props) {
   return (
-    <table className="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Photo
+   props.results.map(result =>(
+     console.log(result)
+     <table className ="table table-striped" >
+       <thead>
+         <tr>
+           <th scope="col">Photo</th>
+           <th scope="col">Name</th>
+           <th scope="col">Phone</th>
+           <th scope="col">Email</th>
+           <th scope="col">DOB</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <th scope="row">                          
+           <div className="img-container">
+            <img src={result.picture.thumbnail}/>
+           </div>
+           </th>
+           <td>{`${result.name.first} ${result.name.last}`}</td>
+           <td>{result.phone}</td>
+           <td>{result.email}</td>
+           <td>{result.dob}</td>
+         </tr>
 
-        </th>
-        <th scope="col">Name</th>
-        <th scope="col">Phone</th>
-        <th scope="col">Email</th>
-        <th scope="col">DOB</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <th scope="row">                          <div className="img-container">
-            {/* <img alt={props.name} src={props.image} /> */}
-          </div>
-          </th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>dd/mm/year</td>
-        </tr>
+       </tbody>
+     </table>
 
-        <tr>
-          <th scope="row">                          <div className="img-container">
-            {/* <img alt={props.name} src={props.image} /> */}
-          </div>
-          </th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>dd/mm/year</td>
-        </tr>
+   )
+   ) 
 
-    </tbody>
-  </table>
   )
 }
 

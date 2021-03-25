@@ -1,26 +1,46 @@
-// import logo from './logo.svg';
-// import './App.css';
-
 
 import React from 'react';
 import Wrapper from './components/Wrapper';
 import Title from './components/Title';
 import Employee from './components/Employee';
 import Search from './components/Search';
-// import Employee from './components/Employee';
+import axios from 'axios'
+
 
 
 class App extends React.Component {
-  // state = {
-  //   employeeList: employee
-  // }
+   state ={
+    //Where you can find default value
+    searchByName:"",
+    searchByDOB:"",
+    results: []
+  }
 
-  // handleSearch = gender =>{
-  //   const genderEmployeeList = 
-  //   this.state.employeeList.filter(employee => employee.gender )
-  //   this.setState ({employeeList: genderEmployeeList})
+  componentDidMount(){
+   axios.get('https://randomuser.me/api/?results=20')
+   .then(response => {
+     console.log(response.data.results)
+     this.setState({results: response.data.results})
+    })
+   .catch(err => console.error(err))
+  }
 
-  // }
+  handleInputChange = (e)=>{
+    const name = e.target.name;
+    const value = e.target.value;
+   this.setState({[name]: value})
+
+ }
+
+ handleSubmit = e =>{
+  e.preventDefault()
+  console.log("Submitting....", this.state.searchByName, this.state.searchByDOB)
+  if(this.state.searchByName==="" && this.state.searchByDOB===""){
+      alert("Please enter correct search term")
+
+  }
+  localStorage.setItem("search", `${this.state.searchByName} ${this.state.searchByDOB}`)
+}
 
   render(){
 
@@ -28,23 +48,15 @@ class App extends React.Component {
     
       <Wrapper>
            <Title>Employee Directory</Title>
-           <Search />
+           <Search 
+             searchByName={this.state.searchByName}
+             searchByDOB={this.state.searchByDOB}
+             handleInputChange={this.handleInputChange}
+             handleSubmit={this.handleSubmit}
+           />
       
-          <Employee/>
-        {/* {this.state.employeeList.map(employee => 
-            (
-              <Employee
-              id = {employee.id}
-              name={employee.name}
-              image={employee.image}
-              occupation={friend.occupation}
-              location={friend.location}
-              key ={employee.id}
-              handleSearch = {this.handleSearch}
-            />
-            )
-        )} */}
-      
+          <Employee
+          results = {this.state.results}/>
   
       </Wrapper>
     );

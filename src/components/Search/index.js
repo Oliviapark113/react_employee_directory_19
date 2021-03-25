@@ -1,50 +1,38 @@
-import React, {Component} from "react";
+import React from "react";
 import "./style.css";
 
 
-class Search extends Component {
-   state ={
-       searchByName:"",
-       searchByDOB:""
-   }
-
-   handleInputChange = (e)=>{
-      const name = e.target.name;
-      const value = e.target.value;
-     this.setState({[name]: value})
-
-   }
-
-
-    render(){
-        return(
+const Search =props=> {
+   return(
             <div className="col-md-12 input-container text-center">
                 <div className="row name-search">
                     <div className="name-input">
                     <input type="text" 
                             name="searchByName"
-                            value={this.state.searchByName}
+                            value={props.searchByName}
                             placeholder="Enter Full Name"
-                            onChange={this.handleInputChange}/>
+                            onChange={props.handleInputChange}/>
                     </div>
                     <div className="name-btn">
                         <button 
                         type="button" 
-                        className="query_btn btn btn-default btn-sm search-btn">Search by Name</button>
+                        className="query_btn btn btn-default btn-sm search-btn"
+                        onClick={props.handleSubmit}>Search by Name</button>
                     </div>
                     </div>
                     <div className="row dob-search">
                     <div className="name-input">
                     <input type="text" 
                             name="searchByDOB"
-                            value={this.state.searchByDOB}
+                            value={props.seachByDOB}
                             placeholder="Enter Full Name"
-                            onChange= {this.handleInputChange}/>
+                            onChange= {props.handleInputChange}/>
                     </div>
                     <div className="name-btn">
                         <button 
                         type="button" 
-                        className="query_btn btn btn-default btn-sm search-btn">Search by DOB</button>
+                        className="query_btn btn btn-default btn-sm search-btn"
+                        onClick={props.handleSubmit}>Search by DOB</button>
                     </div>
                   
                     </div>
@@ -53,6 +41,6 @@ class Search extends Component {
         )
 
     }
-}
+
 
 export default Search;
