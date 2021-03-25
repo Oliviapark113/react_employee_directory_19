@@ -3,10 +3,9 @@ import "./style.css";
 // import Search from "./Search"
 
 function Employee (props) {
-  return (
-   props.results.map(result =>(
-     console.log(result)
-     <table className ="table table-striped" >
+ return(
+  props.results.map(result =>(
+         (  <table className ="table table-striped" >
        <thead>
          <tr>
            <th scope="col">Photo</th>
@@ -20,22 +19,25 @@ function Employee (props) {
          <tr>
            <th scope="row">                          
            <div className="img-container">
-            <img src={result.picture.thumbnail}/>
+            <img src={result.picture.large}/>
            </div>
            </th>
            <td>{`${result.name.first} ${result.name.last}`}</td>
            <td>{result.phone}</td>
            <td>{result.email}</td>
-           <td>{result.dob}</td>
+           <td>{result.dob.date}</td>
          </tr>
 
        </tbody>
      </table>
+     )
+  ) 
 
-   )
-   ) 
+ )
+ )
 
-  )
+       
+  
 }
 
 export default Employee;

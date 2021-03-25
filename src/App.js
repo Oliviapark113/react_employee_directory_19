@@ -19,7 +19,7 @@ class App extends React.Component {
   componentDidMount(){
    axios.get('https://randomuser.me/api/?results=20')
    .then(response => {
-     console.log(response.data.results)
+     console.log("app",response.data.results)
      this.setState({results: response.data.results})
     })
    .catch(err => console.error(err))
