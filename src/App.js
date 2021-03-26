@@ -5,7 +5,7 @@ import Title from './components/Title';
 import Employee from './components/Employee';
 import Search from './components/Search';
 import axios from 'axios'
-import API from './components/utils/API'
+// import API from './components/utils/API'
 
 
 
@@ -30,8 +30,8 @@ class App extends React.Component {
     .catch(err => console.error(err))
    }
 
-  searchByGender = ()=>{
-    API.searchBygender(this.state.searchByGender)
+  searchAPIbyGender = ()=>{
+    axios.get(`https://randomuser.me/api/?gender=${this.state.searchByGender}`)
     .then(response =>{
       console.log(response.data.results)
       this.setState({results:response.data.results })
@@ -41,8 +41,11 @@ class App extends React.Component {
   }
 
   handleInputChange = (e)=>{
+  
     const name = e.target.name;
     const value = e.target.value;
+
+    console.log(name, value)
    this.setState({[name]: value})
 
  }
@@ -64,11 +67,12 @@ class App extends React.Component {
       <Wrapper>
            <Title>Employee Directory</Title>
            <Search 
-             searchByName={this.state.searchByGender}
+            searchByGender={this.state.searchByGender}
              searchByDOB={this.state.searchByDOB}
              handleInputChange={this.handleInputChange}
              handleSubmit={this.handleSubmit}
-             searchByGender={this.searchByGender}
+             searchAPIbyGender={this.searchAPIbyGender}
+             
            />
       
           <Employee

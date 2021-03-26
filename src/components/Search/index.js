@@ -17,7 +17,14 @@ const Search =props=> {
                         <button 
                         type="button" 
                         className="query_btn btn btn-default btn-sm search-btn"
-                        onClick={props.searchByGender}>Search by Gender</button>
+                        onClick={props.searchAPIbyGender}>Search male</button>
+
+                        <button
+                       type="button"
+                       className="query_btn btn btn-default btn-sm search-btn"
+                       onClick={props.searchAPIbyGender}>Search female</button>
+
+
                     </div>
                     </div>
                     <div className="row dob-search">
