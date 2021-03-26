@@ -6,20 +6,16 @@ const Search =props=> {
    return(
             <div className="col-md-12 input-container text-center">
                 <div className="row name-search">
-                    <div className="name-input">
-                    <input type="text" 
-                            name="searchByGender"
-                            value={props.searchByGender}
-                            placeholder="Enter Gender"
-                            onChange={props.handleInputChange}/>
-                    </div>
+ 
                     <div className="name-btn">
                         <button 
+                        value="male"
                         type="button" 
                         className="query_btn btn btn-default btn-sm search-btn"
                         onClick={props.searchAPIbyGender}>Search male</button>
 
                         <button
+                        value="female"
                        type="button"
                        className="query_btn btn btn-default btn-sm search-btn"
                        onClick={props.searchAPIbyGender}>Search female</button>
@@ -29,7 +25,7 @@ const Search =props=> {
                     </div>
                     <div className="row dob-search">
                     <div className="name-input">
-                    <input type="text" 
+                    <input type="date" 
                             name="searchByDOB"
                             value={props.seachByDOB}
                             placeholder="Enter Full Name"

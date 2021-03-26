@@ -3,9 +3,12 @@ import "./style.css";
 // import Search from "./Search"
 
 function Employee (props) {
+  console.log(props)
  return(
+  
   props.results.map(result =>(
-         (  <table className ="table table-striped" >
+    
+         ( <table key={result.login.uuid} className ="table table-striped" >
        <thead>
          <tr>
            <th scope="col">Photo</th>
@@ -19,13 +22,13 @@ function Employee (props) {
          <tr>
            <th scope="row">                          
            <div className="img-container">
-            <img src={result.picture.large} key ={result.id.value}/>
+            <img src={result.picture.large} />
            </div>
            </th>
-           <td key={result.id.value}>{`${result.name.first} ${result.name.last}`}</td>
-           <td key={result.id.name} >{result.phone}</td>
-           <td key={result.login.uuid}>{result.email}</td>
-           <td key={result.login.username}>{result.dob.date}</td>
+           <td >{`${result.name.first} ${result.name.last}`}</td>
+           <td >{result.phone}</td>
+           <td >{result.email}</td>
+           <td >{result.dob.date}</td>
          </tr>
 
        </tbody>

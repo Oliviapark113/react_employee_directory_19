@@ -12,7 +12,7 @@ import axios from 'axios'
 class App extends React.Component {
    state ={
     //Where you can find default value
-    searchByGender:"",
+    // searchByGender:"",
     searchByDOB:"",
     results: []
   }
@@ -30,8 +30,9 @@ class App extends React.Component {
     .catch(err => console.error(err))
    }
 
-  searchAPIbyGender = ()=>{
-    axios.get(`https://randomuser.me/api/?gender=${this.state.searchByGender}`)
+  searchAPIbyGender = (e)=>{
+    const gender = e.target.value
+    axios.get(`https://randomuser.me/api/?gender=${gender}`)
     .then(response =>{
       console.log(response.data.results)
       this.setState({results:response.data.results })
@@ -39,6 +40,8 @@ class App extends React.Component {
 
 
   }
+
+
 
   handleInputChange = (e)=>{
   
@@ -61,13 +64,18 @@ class App extends React.Component {
 }
 
   render(){
+   console.log(this.state.searchByDOB)
+   const filteredResults= this.state.results.filter(user=>{
+     return user.dob.date.includes(this.state.searchByDOB)
 
+   })
+   
     return (
     
       <Wrapper>
            <Title>Employee Directory</Title>
            <Search 
-            searchByGender={this.state.searchByGender}
+            // searchByGender={this.state.searchByGender}
              searchByDOB={this.state.searchByDOB}
              handleInputChange={this.handleInputChange}
              handleSubmit={this.handleSubmit}
@@ -76,7 +84,7 @@ class App extends React.Component {
            />
       
           <Employee
-          results = {this.state.results}/>
+          results = {filteredResults}/>
   
       </Wrapper>
     );
