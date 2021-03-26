@@ -5,7 +5,7 @@ import Title from './components/Title';
 import Employee from './components/Employee';
 import Search from './components/Search';
 import axios from 'axios'
-// import API from './components/utils/API'
+
 
 
 
@@ -60,7 +60,7 @@ class App extends React.Component {
       alert("Please enter correct search term")
 
   }
-  localStorage.setItem("search", `${this.state.searchByGender} ${this.state.searchByDOB}`)
+  localStorage.setItem("search", `${this.state.searchByDOB}`)
 }
 
   render(){
@@ -75,7 +75,6 @@ class App extends React.Component {
       <Wrapper>
            <Title>Employee Directory</Title>
            <Search 
-            // searchByGender={this.state.searchByGender}
              searchByDOB={this.state.searchByDOB}
              handleInputChange={this.handleInputChange}
              handleSubmit={this.handleSubmit}
