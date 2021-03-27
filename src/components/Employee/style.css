@@ -17,7 +17,7 @@
     width: 100px;
     overflow: hidden;
     text-align: center;
-    background:#6CADDC;
+    /* background:#6CADDC; */
   }
 
   .box{
@@ -26,6 +26,15 @@
 
   @media screen and (max-width: 640px) {
     .box {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      width:60%;
+      font-size: 18px;
+    
+    }
+    .table {
       display: flex;
       flex-direction: column;
       flex-wrap: nowrap;

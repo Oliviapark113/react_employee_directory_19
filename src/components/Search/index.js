@@ -36,7 +36,7 @@ const Search =props=> {
                 <div className="col-md-3">
                     <button
                        type="button"
-                       className="query_btn btn btn-default btn-sm search-btn dob"
+                       className="query_btn btn btn-default btn-sm search-btn"
                        onClick={props.handleSubmit}>Search by DOB</button>
                 </div>
   

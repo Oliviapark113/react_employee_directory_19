@@ -15,7 +15,7 @@
 }
 
 input{
-    width: 80%
+    width: 100%
 }
 
 .search-btn{
@@ -51,29 +51,26 @@ input{
     font-size: 20px;
     height:60px;
     width:250px;
-    margin:20px;
+    margin:10px;
     font-weight: bold;
 }
 
-@media screen and (max-width: 680 px) {
+@media screen and (max-width:680px) {
 
     .container {
         display: flex;
         flex-direction: column;
         align-items: center;
-     
-    }
+     }
 
     .row {
         display: flex;
         flex-direction: column;
         align-items: center;
         flex-wrap: wrap;
-        
     }
 
    
-
 
   }
 
