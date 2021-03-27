@@ -8,7 +8,9 @@ function Employee (props) {
   
   props.results.map(result =>(
     
-         ( <table key={result.login.uuid} className ="table table-striped" >
+         ( 
+         <div className="box">
+         <table key={result.login.uuid} className ="table table-striped" >
        <thead>
          <tr>
            <th scope="col">Photo</th>
@@ -28,11 +30,13 @@ function Employee (props) {
            <td >{`${result.name.first} ${result.name.last}`}</td>
            <td >{result.phone}</td>
            <td >{result.email}</td>
-           <td >{result.dob.date}</td>
+           <td >{props.formatName(result.dob.date)
+           }</td>
          </tr>
 
        </tbody>
      </table>
+     </div>
      )
   ) 
 

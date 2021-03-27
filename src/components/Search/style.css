@@ -1,10 +1,17 @@
 .input-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    align-items: center;
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;
  
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
 }
 
 input{
@@ -12,8 +19,62 @@ input{
 }
 
 .search-btn{
-    font-size: 24px;
+    color:whitesmoke;
+    background-color:#448aff;
+    border: 1px solid black;
+    /* width: 120px; */
 }
+
+
+.genderSearch-btn{
+    padding:0px;
+    margin:10px;
+}
+
+.date-input {
+    display:flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+    align-items: center;
+    margin:10px;
+    padding:0px;
+ 
+    
+}
+input{
+    padding:0px;
+    margin:10px;
+    height:60px;
+}
+.search-btn{
+    font-size: 20px;
+    height:60px;
+    width:250px;
+    margin:20px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 680 px) {
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+     
+     
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+   
+
+
+  }
+
 
 
 

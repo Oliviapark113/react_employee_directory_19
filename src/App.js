@@ -30,6 +30,18 @@ class App extends React.Component {
     .catch(err => console.error(err))
    }
 
+    formatName(string) {
+    var shortStr = string.slice(0,10) + ".."
+    if (string.length > 20){
+      console.log(shortStr)
+      return shortStr 
+    }
+    else {
+      console.log(string)
+      return string
+    }
+  }
+
   searchAPIbyGender = (e)=>{
     const gender = e.target.value
     axios.get(`https://randomuser.me/api/?gender=${gender}`)
@@ -41,10 +53,7 @@ class App extends React.Component {
 
   }
 
-
-
-  handleInputChange = (e)=>{
-  
+  handleInputChange = (e)=>{ 
     const name = e.target.name;
     const value = e.target.value;
 
@@ -83,7 +92,8 @@ class App extends React.Component {
            />
       
           <Employee
-          results = {filteredResults}/>
+          results = {filteredResults}
+          formatName={this.formatName}/>
   
       </Wrapper>
     );
